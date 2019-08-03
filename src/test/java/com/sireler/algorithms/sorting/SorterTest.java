@@ -21,4 +21,9 @@ public class SorterTest {
     public void bubble() {
         assertArrayEquals(EXPECTED, sorter.bubble(ARRAY));
     }
+
+    @Test
+    public void selection() {
+        assertArrayEquals(EXPECTED, sorter.selection(ARRAY));
+    }
 }
