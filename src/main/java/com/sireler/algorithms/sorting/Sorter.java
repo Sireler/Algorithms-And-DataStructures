@@ -48,4 +48,71 @@ public class Sorter {
 
         return array;
     }
+
+    public static int[] merge(int[] array) {
+        mergeSort(array, 0, array.length - 1);
+
+        return array;
+    }
+
+    /**
+     * Merge sort
+     *
+     * @param array source array
+     * @param left left merge boundary
+     * @param right right merge boundary
+     */
+    private static void mergeSort(int[] array, int left, int right) {
+        if (left >= right)
+            return;
+
+        int mid = (left + right) / 2;
+
+        mergeSort(array, left, mid);
+        mergeSort(array, mid + 1, right);
+        doMerge(array, left, mid, right);
+    }
+
+    /**
+     * Merge two arrays in ascending order of their elements
+     *
+     * @param array big array
+     * @param left left merge boundary
+     * @param mid middle merge boundary
+     * @param right right merge boundary
+     */
+    private static void doMerge(int[] array, int left, int mid, int right) {
+        // Current position to read from the first array
+        int pos1 = left;
+
+        // Current position to read from the second array
+        int pos2 = mid + 1;
+
+        // Current position to write to the temp array
+        int pos3 = 0;
+
+        int[] temp = new int[right - left + 1];
+
+        // Merge while both arrays have elements
+        while (pos1 <= mid && pos2 <= right) {
+            if (array[pos1] < array[pos2]) {
+                temp[pos3++] = array[pos1++];
+            } else {
+                temp[pos3++] = array[pos2++];
+            }
+        }
+
+        // Merge the remaining elements
+        while (pos2 <= right) {
+            temp[pos3++] = array[pos2++];
+        }
+        while (pos1 <= mid) {
+            temp[pos3++] = array[pos1++];
+        }
+
+        // Copy from the temp array to the source array
+        for (pos3 = 0; pos3 < right - left + 1; pos3++) {
+            array[left + pos3] = temp[pos3];
+        }
+    }
 }
