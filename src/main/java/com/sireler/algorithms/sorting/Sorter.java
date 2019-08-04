@@ -1,39 +1,51 @@
 package com.sireler.algorithms.sorting;
 
-class Sorter {
+public class Sorter {
 
-    int[] bubble(int[] array) {
-        int[] arr = array.clone();
-
-        for (int i = 0; i < arr.length - 1; i++) {
-            for (int j = 0; j < arr.length - 1 - i; j++) {
-                if (arr[j] > arr[j + 1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
+    public static int[] bubble(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
+            for (int j = 0; j < array.length - 1 - i; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
                 }
             }
         }
 
-        return arr;
+        return array;
     }
 
-    int[] selection(int[] array) {
-        int[] arr = array.clone();
-
-        for (int i = 0; i < arr.length - 1; i++) {
+    public static int[] selection(int[] array) {
+        for (int i = 0; i < array.length - 1; i++) {
             int index = i;
-            for (int j = i + 1; j < arr.length; j++) {
-                if (arr[j] < arr[index]) {
+            for (int j = i + 1; j < array.length; j++) {
+                if (array[j] < array[index]) {
                     index = j;
                 }
             }
 
-            int temp = arr[i];
-            arr[i] = arr[index];
-            arr[index] = temp;
+            int temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
         }
 
-        return arr;
+        return array;
+    }
+
+    public static int[] insertion(int[] array) {
+        for (int i = 1; i < array.length; i++) {
+            int val = array[i];
+            int j = i - 1;
+
+            while (j >= 0 && val < array[j]) {
+                array[j + 1] = array[j];
+                j--;
+            }
+
+            array[j + 1] = val;
+        }
+
+        return array;
     }
 }
