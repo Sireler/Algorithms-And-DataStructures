@@ -115,4 +115,47 @@ public class Sorter {
             array[left + pos3] = temp[pos3];
         }
     }
+
+    public static int[] quick(int[] array) {
+        quickSort(array, 0, array.length - 1);
+
+        return array;
+    }
+
+    private static void quickSort(int[] array, int left, int right) {
+        if (array.length == 0 || left >= right)
+            return;
+
+        // Select the wall
+        int middle = left + (right - left) / 2;
+        int wall = array[middle];
+
+        // Split into subarrays
+        // 1 - ( > wall)
+        // 2 - ( < wall )
+        int i = left, j = right;
+        while (i <= j) {
+            while (array[i] < wall) {
+                i++;
+            }
+
+            while (array[j] > wall) {
+                j--;
+            }
+
+            // Swap elements
+            if (i <= j) {
+                int temp = array[i];
+                array[i++] = array[j];
+                array[j--] = temp;
+            }
+        }
+
+        // Sort the left or right side of array
+        if (left < j)
+            quickSort(array, left, j);
+
+        if (right > i)
+            quickSort(array, i, right);
+    }
 }

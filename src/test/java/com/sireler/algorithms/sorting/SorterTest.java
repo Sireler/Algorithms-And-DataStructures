@@ -28,4 +28,9 @@ public class SorterTest {
     public void merge() {
         assertArrayEquals(EXPECTED, Sorter.merge(ARRAY.clone()));
     }
+
+    @Test
+    public void quick() {
+        assertArrayEquals(EXPECTED, Sorter.quick(ARRAY.clone()));
+    }
 }
