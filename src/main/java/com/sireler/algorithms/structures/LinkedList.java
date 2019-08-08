@@ -6,7 +6,7 @@ public class LinkedList {
 
     LinkedList.Node first;
     LinkedList.Node last;
-    int size;
+    private int size;
 
     public LinkedList() {
         first = null;
@@ -149,6 +149,10 @@ public class LinkedList {
         if (!isIndexInList(index)) {
             throw new IndexOutOfBoundsException("Index was outside the bounds of the list");
         }
+    }
+
+    public int getSize() {
+        return size;
     }
 
     /**

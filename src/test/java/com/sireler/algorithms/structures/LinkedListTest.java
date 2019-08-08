@@ -131,4 +131,17 @@ public class LinkedListTest {
 
         list.get(2);
     }
+
+    @Test
+    public void getSize() {
+        LinkedList list = new LinkedList();
+        assertEquals(0, list.getSize());
+
+        list.insert(1);
+        list.insert(1);
+        assertEquals(2, list.getSize());
+
+        list.insert(1);
+        assertEquals(3, list.getSize());
+    }
 }
