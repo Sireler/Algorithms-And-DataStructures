@@ -1,8 +1,8 @@
-package com.sireler.algorithms.sorting;
+package com.sireler.algorithms;
 
-public class Sorter {
+public class Sort {
 
-    private Sorter() {
+    private Sort() {
     }
 
     public static int[] bubble(int[] array) {

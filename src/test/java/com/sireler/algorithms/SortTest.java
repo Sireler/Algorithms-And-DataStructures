@@ -1,36 +1,37 @@
-package com.sireler.algorithms.sorting;
+package com.sireler.algorithms;
 
+import com.sireler.algorithms.Sort;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class SorterTest {
+public class SortTest {
 
     private static final int[] ARRAY = { 5, 4, 1, 3, 2, 7, 9, 6, 8 };
     private static final int[] EXPECTED = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
 
     @Test
     public void bubble() {
-        assertArrayEquals(EXPECTED, Sorter.bubble(ARRAY.clone()));
+        assertArrayEquals(EXPECTED, Sort.bubble(ARRAY.clone()));
     }
 
     @Test
     public void selection() {
-        assertArrayEquals(EXPECTED, Sorter.selection(ARRAY.clone()));
+        assertArrayEquals(EXPECTED, Sort.selection(ARRAY.clone()));
     }
 
     @Test
     public void insertion() {
-        assertArrayEquals(EXPECTED, Sorter.insertion(ARRAY.clone()));
+        assertArrayEquals(EXPECTED, Sort.insertion(ARRAY.clone()));
     }
 
     @Test
     public void merge() {
-        assertArrayEquals(EXPECTED, Sorter.merge(ARRAY.clone()));
+        assertArrayEquals(EXPECTED, Sort.merge(ARRAY.clone()));
     }
 
     @Test
     public void quick() {
-        assertArrayEquals(EXPECTED, Sorter.quick(ARRAY.clone()));
+        assertArrayEquals(EXPECTED, Sort.quick(ARRAY.clone()));
     }
 }

@@ -1,4 +1,4 @@
-package com.sireler.algorithms.structures;
+package com.sireler.algorithms.ds;
 
 import org.junit.Test;
 
